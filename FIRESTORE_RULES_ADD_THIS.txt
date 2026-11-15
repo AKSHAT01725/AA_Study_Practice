@@ -1,0 +1,23 @@
+FIRESTORE SECURITY RULES — COMPLETE REPLACEMENT
+================================================
+
+The previous file contained only a partial planner rule snippet. This project now includes a complete ruleset in firestore.rules.
+
+DEPLOYMENT
+1. Open Firebase Console → your project → Firestore Database → Rules.
+2. Back up the currently published rules.
+3. Replace the rules with the complete contents of firestore.rules.
+4. Confirm the two administrator email addresses match ADMIN_EMAILS in index.html and admin.html.
+5. Publish.
+6. Run the security test checklist in FIREBASE_SECURITY_AND_DEPLOYMENT.md using separate student and administrator accounts.
+
+WHAT THE RULES ENFORCE
+- Students can read their own user profile and progress only.
+- Students can create/update only their own attempt records.
+- Students can read only grading records whose uid matches their account.
+- Only the allow-listed, email-verified administrators can manage users, grading records, PDFs and shared planner configuration.
+- Student profile updates cannot change protected role/ban fields.
+- Unlisted collections are denied by default.
+
+IMPORTANT
+These rules are a deployment candidate derived from the current client code paths. They have not been deployed to your Firebase project or executed in the Firebase Emulator because no Firebase project credentials/configuration or emulator environment was supplied. Test all workflows before production use. The frontend administrator email check is not a substitute for these backend rules.
